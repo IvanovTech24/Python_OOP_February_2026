@@ -10,16 +10,13 @@ class Storage:
         self.documents: list[Document] = []
 
     def add_category(self, category: Category) -> None:
-        if category not in self.categories:
-            self.categories.append(category)
+        self.__add_object(category, self.categories)
 
     def add_topic(self, topic: Topic) -> None:
-        if topic not in self.topics:
-            self.topics.append(topic)
+        self.__add_object(topic, self.topics)
 
     def add_document(self, document: Document) -> None:
-        if document not in self.documents:
-            self.documents.append(document)
+        self.__add_object(document, self.documents)
 
     def edit_category(self, category_id: int, new_name: str) -> None:
         self.__edit_object(category_id, self.categories, new_name)
@@ -42,8 +39,14 @@ class Storage:
     def get_document(self, document_id) -> "Document":
         return self.__find_object(document_id, self.documents)
 
+
     def __repr__(self):
         return "\n".join([d.__str__() for d in self.documents])
+
+    @staticmethod
+    def __add_object(obj, collection):
+        if obj not in collection:
+            collection.append(obj)
 
     def __edit_object(self, object_id, collection, *new_value) -> None:
         obj = self.__find_object(object_id, collection)
