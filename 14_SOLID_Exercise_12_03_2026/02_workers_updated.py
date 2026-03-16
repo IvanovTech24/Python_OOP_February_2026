@@ -1,6 +1,7 @@
 from abc import ABCMeta, abstractmethod
 import time
 
+
 class AbstractWorker:
     __metaclass__ = ABCMeta
 

@@ -22,7 +22,6 @@ class Worker(Workable, Eatable):
         time.sleep(5)
 
 class SuperWorker(Workable, Eatable):
-
     def work(self):
         print("I'm super worker. I work very hard!")
 
