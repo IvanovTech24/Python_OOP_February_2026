@@ -1,3 +1,4 @@
+# Iterator
 class custom_range:
     def __init__(self, start, end):
      self.start = start
@@ -17,4 +18,16 @@ class custom_range:
 
 ont_to_ten = custom_range(1, 10)
 for num in ont_to_ten:
+    print(num)
+
+
+# Generator
+def custom_range(start, end):
+    current = start
+    while current <= end:
+        yield current
+        current += 1
+
+one_to_ten = custom_range(1, 10)
+for num in one_to_ten:
     print(num)
